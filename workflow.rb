@@ -121,8 +121,7 @@ module SphereClustering
   input :distance, :integer, "Distance in Angstroms", 5
   input :organism, :string, "Organism code", "Hsa/feb2014"
   dep :load_mutations, :protein => :protein
-  dep :protein_neighbourhood, :protein => :protein
-  dep :protein_neighbourhood, :distance => :distance
+  dep :protein_neighbourhood, :protein => :protein, :distance => :distance
   task :protein_cluster => :tsv do |protein,spheres,distance,organism|
     prot = protein.dup
     Protein.setup(prot, "Ensembl Protein ID", "Hsa")
