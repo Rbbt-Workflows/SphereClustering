@@ -135,7 +135,7 @@ module SphereClustering
 
     total_cosmic_muts = pos_freq_mutation.map{|k,v| v.to_i}.reduce(:+)
 
-    puts "Total cosmic mutations of the protein\t#{total_cosmic_muts}"
+    log "Total cosmic mutations of the protein\t#{total_cosmic_muts}"
     pos_freq_mutation.each do |k,v|
       next if neighbourhood[k].nil?
       pos_freq_mutation_neighbourhood[k.to_i] = v.to_i
@@ -147,7 +147,7 @@ module SphereClustering
 
     sorted_positions = pos_freq_mutation_neighbourhood.sort_by{|p,c| c}.reverse.map{|p| [p[0].to_i, p[1]]}
 
-    puts "Total of mutated positions of the protein\t#{sorted_positions.size}"
+    log "Total of mutated positions of the protein\t#{sorted_positions.size}"
     positions = (0..spheres-1).to_a
     aa_size = sorted_positions.size-1
     raise "more spheres than mutated amino acids" if positions.size > aa_size
