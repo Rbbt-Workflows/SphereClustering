@@ -207,7 +207,8 @@ module SphereClustering
     end
 
     if best.nil?
-      "too much spheres"
+      log "too many spheres"
+      TSV.setup({}, :key_field => "Position", :fields => ["Mutations"], :type => :flat)
     else
 
       c, position = best
