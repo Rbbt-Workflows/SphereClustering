@@ -1,3 +1,4 @@
+
 require 'rbbt-util'
 require 'rbbt/workflow'
 
@@ -210,6 +211,7 @@ module SphereClustering
       "too much spheres"
     else
 
+      c, position = best
       tsv = TSV.setup({}, :key_field => "Position", :fields => ["Mutations"], :type => :flat)
       positions.each_with_index do |p,i|
         pos, muts = sorted_positions[p]
